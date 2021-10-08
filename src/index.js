@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './assets/scss/_vars.scss';
+import './assets/scss/_grid.scss';
+import './assets/scss/_mixins.scss';
 import Affirmation from './components/DailyAffirmation/DailyAffirmation.js';
 import Header from './components/Header/Header';
 

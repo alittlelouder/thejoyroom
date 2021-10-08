@@ -1,0 +1,105 @@
+/*************
+* BREAKPOINTS
+*************/
+// Media query mixin. Mobile-first opinionated.
+@mixin bp-min($size) {
+  @if $size == s {
+    @media (min-width: $small-min) { @content; }
+  } @else if $size == m {
+    @media (min-width: $medium-min) { @content; }
+  } @else if $size == l {
+    @media (min-width: $large-min) { @content; }
+  } @else if $size == xl {
+    @media (min-width: $xlarge-min) { @content; }
+  }
+}
+
+
+/*************
+* TEXT
+*************/
+// responsive typography function to strip unit
+@function strip-unit($number) {
+  @if (type-of($number) == 'number' and not unitless($number)) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// responsive typography mixin that interpolates
+// type size between min and max
+@mixin responsive-text(
+  $min-font-size,
+  $max-font-size,
+  $enableLineHeight: false
+) {
+  $device-font-scale: 1440px;
+
+  font-size: $min-font-size;
+  @if $enableLineHeight {
+    line-height: $min-font-size;
+  }
+
+  @include bp-min(m) {
+    font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+    ((100vw - #{$medium-min}) / #{strip-unit($device-font-scale - $medium-min)}));
+    @if $enableLineHeight {
+      line-height: calc(#{$min-font-size} +
+      #{strip-unit($max-font-size - $min-font-size)} *
+      (
+        (100vw - #{$medium-min}) /
+        #{strip-unit($device-font-scale - $medium-min)}
+      ));
+    }
+  }
+  @media (min-width: ($device-font-scale)) {
+    font-size: $max-font-size;
+    @if $enableLineHeight {
+      line-height: $max-font-size;
+    }
+  }
+}
+
+// px to em conversion
+// https://css-tricks.com/snippets/sass/px-to-em-functions/
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+// px to rem conversion
+@function rem($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+// aspect ratio box
+@mixin aspect-ratio($ratio) {
+  padding-bottom: $ratio * 100%;
+}
+
+// visually hidden
+@mixin visually-hidden() {
+  position: absolute;
+  width: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
