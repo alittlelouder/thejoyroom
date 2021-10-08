@@ -5,7 +5,7 @@ import style from './Greeting.module.scss';
 export const Greeting = (props) => {
     return (
         <div>
-        <span className={style["intro"]}>Welcome Shanelle,</span>
+        <span className={style["greeting"], 'app-col app-col-lg-offset-2'}>Welcome Shanelle,</span>
         </div>
     )
 }
