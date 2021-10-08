@@ -10,7 +10,11 @@ import Footer from './components/Footer/Footer';
 import reportWebVitals from './reportWebVitals';
 
 const TestCard = {
-  eyebrow: 'OCTOBER WoC SPOTLIGHT'
+  eyebrow: 'OCTOBER WoC SPOTLIGHT',
+  backgroundColor: 'orange',
+  image: './assets/images/celeste.png',
+  title: 'Celeste Ng',
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. '
 }
 
 ReactDOM.render(
@@ -18,7 +22,7 @@ ReactDOM.render(
     <Header/>
     <Greeting/>
     <Affirmation/>
-    <ContentCard eyebrow={TestCard.eyebrow}/>
+    <ContentCard eyebrow={TestCard.eyebrow} backgroundColor={TestCard.backgroundColor} image={TestCard.image} title={TestCard.title} description={TestCard.description}/>
     <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
