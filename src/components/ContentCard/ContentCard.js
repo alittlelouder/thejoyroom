@@ -1,12 +1,13 @@
 import React from 'react';
 import style from './ContentCard.module.scss';
+import celeste from '../../assets/images/celeste.png'
 
 export const ContentCard = (props) => {
     return (
-        <div className={style["section"]}>
-            <span className={style["eyebrow"]}>OCTOBER WoC SPOTLIGHT</span>
+        <div className={ `app-col app-col-lg-6 ${style["content-card"]}`}>
+            <span className={style["eyebrow"]}>{props.eyebrow}</span>
             <div className={style["image"]}>
-            <img></img>
+            <img src={celeste}></img>
             </div>
             <p className={style["title"]}>Celeste Ng</p>
             <p className={style["description"]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. </p>
@@ -17,3 +18,4 @@ export const ContentCard = (props) => {
 }
 
 export default ContentCard;
+
