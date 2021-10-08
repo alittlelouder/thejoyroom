@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Affirmation from './components/DailyAffirmation/DailyAffirmation.js';
+import Header from './components/Header/Header';
+
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Header/>
     <Affirmation/>
   </React.StrictMode>,
   document.getElementById('root')

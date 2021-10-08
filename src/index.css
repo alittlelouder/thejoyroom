@@ -1,3 +1,6 @@
+body {
+  background-color: pink;
+}
 @font-face {
   font-family: "Quincy";
   src: url(./assets/fonts/QuincyCF-Text.otf);
