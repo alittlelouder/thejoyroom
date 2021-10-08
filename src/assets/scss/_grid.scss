@@ -1,0 +1,195 @@
+/********************
+**** 24-column Flexbox Grid
+**** Demo @ https://codepen.io/team/instrument/pen/eYYrPRe?editors=1100
+*********************/
+$max-width: 1440;
+$grid_length: 24;
+
+@import 'vars';
+@import 'mixins';
+
+@function get-vw($col, $scale: $grid-length) {
+  @return #{(($col / $grid-length * 100) * ($scale / $grid-length))}vw;
+}
+
+// Gets the max pixel value for a col unit.
+@function get-max($col) {
+  @return ($max-width / $grid_length) * $col;
+}
+
+@function get-vw-offset($col, $scale: $grid-length) {
+  @return percentage(
+    $number: (
+      ($col / $grid-length) * ($scale / $grid-length),
+    )
+  );
+}
+
+@mixin cols($col, $scale: $grid-length) {
+  flex: 0 0 auto;
+  flex-basis: get-vw($col, $scale);
+  width: get-vw($col, $scale);
+  max-width: rem(($max-width / $grid_length) * $col);
+}
+
+@mixin row() {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+@mixin col-loop($prefix) {
+  @for $col from 1 through $grid-length {
+    .app-col-#{$prefix}-#{$col} {
+      @include cols($col);
+    }
+
+    @if $col==1 {
+      .app-col-#{$prefix}-offset-0 {
+        margin-left: 0;
+      }
+
+      .app-col-#{$prefix}-offset-right-0 {
+        margin-right: 0;
+      }
+    }
+
+    .app-col-#{$prefix}-offset-#{$col} {
+      margin-left: get-vw($col);
+
+      @media (min-width: #{$max-width}px) {
+        margin-left: rem(get-max($col));
+      }
+    }
+
+    .app-col-#{$prefix}-offset-right-#{$col} {
+      margin-right: get-vw($col);
+
+      @media (min-width: #{$max-width}px) {
+        margin-right: rem(get-max($col));
+      }
+    }
+  }
+
+  .app-row {
+    &-#{$prefix}--start {
+      justify-content: flex-start;
+    }
+
+    &-#{$prefix}--center {
+      justify-content: center;
+    }
+
+    &-#{$prefix}--end {
+      justify-content: flex-end;
+    }
+    &-#{$prefix}--around {
+      justify-content: space-around;
+    }
+
+    &-#{$prefix}--between {
+      justify-content: space-between;
+    }
+    &-#{$prefix}--top {
+      align-items: flex-start;
+    }
+
+    &-#{$prefix}--middle {
+      align-items: center;
+    }
+
+    &-#{$prefix}--bottom {
+      align-items: flex-end;
+    }
+    &-#{$prefix}--reverse {
+      flex-direction: row-reverse;
+    }
+
+    &-#{$prefix}--nowrap {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .app-col-#{$prefix} {
+    flex-basis: 0;
+    flex-grow: 1;
+    width: 100%;
+
+    &--first {
+      order: -1;
+    }
+
+    &--last {
+      order: 1;
+    }
+
+    &--origin {
+      order: 0;
+    }
+
+    &--hide {
+      display: none;
+    }
+
+    &--show {
+      display: flex;
+    }
+
+    &--show-block {
+      display: block;
+    }
+
+    &--show-inline-block {
+      display: inline-block;
+    }
+  }
+
+  // Vertical spacing
+  @each $id, $size in $spacing {
+    .app-spacer-#{$prefix}-#{$id} {
+      height: rem($size);
+    }
+  }
+
+  // Hiding / show utils
+  .-hide-#{$prefix} {
+    display: none;
+  }
+
+  .-show-#{$prefix} {
+    display: unset;
+  }
+}
+
+.app-container {
+  margin: 0 auto;
+  max-width: rem($max-width);
+  width: 100%;
+
+  &--fullwidth {
+    max-width: none;
+  }
+}
+
+.app-row {
+  @include row();
+}
+
+.app-col {
+  &.reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+@include col-loop('xs');
+
+@include bp-min(m) {
+  @include col-loop('md');
+}
+
+@include bp-min(l) {
+  @include col-loop('lg');
+}

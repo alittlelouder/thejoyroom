@@ -1,0 +1,92 @@
+/*************
+* COLORS
+*************/
+$black: #000;
+$brick: #fd484b;
+$brick-light: #fdaeb0;
+$brick-dark: #844c00;
+$grass: #0d845b;
+$grass-light: #9dbeb0;
+$grass-dark: #0a6143;
+$key: #d39f57;
+$key-light: #f5c670;
+$key-dark: #844c00;
+$grey-light: #f2f2f2;
+$pathway: #465670;
+$pathway-light: #c9ced6;
+$pathway-medium: #858fa0;
+$pathway-dark: #1e2430;
+$pathway-accessible: #8791a2;
+$power: #4d5cec;
+$power-light: #e4e6fd;
+$power-dark: #242c58;
+$sky: #007bc7;
+$sky-light: #86c4fc;
+$sky-dark: #08428d;
+$teal: #2fc3b7;
+$teal-light: #97e1db;
+$teal-dark: #085a54;
+$white: #fff;
+$wood: #d9d2ca;
+$wood-light: #fbf2eb;
+$wood-dark: #170f04;
+$scrim: rgba(0, 0, 0, 0.7);
+$success: #18e77f;
+
+/*************
+* SPACING
+*************/
+$spacing-0: 0;
+$spacing-4: 4px;
+$spacing-8: 8px;
+$spacing-16: 16px;
+$spacing-24: 24px;
+$spacing-32: 32px;
+$spacing-40: 40px;
+$spacing-64: 64px;
+$spacing-80: 80px;
+$spacing-120: 120px;
+$spacing-180: 180px;
+
+$spacing: (
+  '0': $spacing-0,
+  '4': $spacing-4,
+  '8': $spacing-8,
+  '16': $spacing-16,
+  '24': $spacing-24,
+  '32': $spacing-32,
+  '40': $spacing-40,
+  '64': $spacing-64,
+  '80': $spacing-80,
+  '120': $spacing-120,
+  '180': $spacing-180,
+);
+
+/*************
+* ANIMATIONS
+*************/
+$anim-ease-linear: linear;
+$anim-ease-expressive: cubic-bezier(0.01, 0.18, 0.07, 1);
+$anim-timing-medium: 400ms;
+$anim-timing-slow: 800ms;
+$anim-scale: 1.2;
+$anim-translate-y: 10px;
+
+/*************
+* BREAKPOINTS
+*************/
+// These breakpoints should match those in `constants.js`
+$small-min: 320px;
+$medium-min: 768px;
+$large-min: 1025px;
+$xlarge-min: 1440px;
+$xxlarge-min: 1824px;
+
+/*************
+* DISPLAY
+*************/
+$border-radius-btn: 4px;
+$border-radius-dropdown: 8px;
+$border-radius-container: 16px;
+$drop-shadow: drop-shadow(0 9px 14px rgba(0, 0, 0, 0.5));
+$drop-shadow-light: drop-shadow(0 9px 14px rgba(0, 0, 0, 0.08));
