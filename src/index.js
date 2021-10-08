@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Greeting from './components/Greeting/Greeting';
 import Affirmation from './components/DailyAffirmation/DailyAffirmation.js';
 import ContentCard from './components/ContentCard/ContentCard';
+import Footer from './components/Footer/Footer'
 
 
 
@@ -17,6 +18,7 @@ ReactDOM.render(
     <Greeting/>
     <Affirmation/>
     <ContentCard/>
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );

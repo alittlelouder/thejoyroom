@@ -1,6 +1,19 @@
+html {
+  height: 100%;
+}
+
 body {
   background-color: pink;
   margin: 0;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  padding-bottom: 170px;
+  position: relative;
+  /* height: calc(100vh - 170px); */
 }
 
 @font-face {
