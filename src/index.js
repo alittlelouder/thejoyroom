@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './assets/scss/_vars.scss';
-import './assets/scss/_grid.scss';
-import './assets/scss/_mixins.scss';
-import Affirmation from './components/DailyAffirmation/DailyAffirmation.js';
+import './index.scss';
+// import './assets/scss/_vars.scss';
+// import './assets/scss/_grid.scss';
+// import './assets/scss/_mixins.scss';
 import Header from './components/Header/Header';
+import Greeting from './components/Greeting/Greeting';
+import Affirmation from './components/DailyAffirmation/DailyAffirmation.js';
+import ContentCard from './components/ContentCard/ContentCard';
+
 
 
 import reportWebVitals from './reportWebVitals';
@@ -13,7 +17,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <Header/>
+    <Greeting/>
     <Affirmation/>
+    <ContentCard/>
   </React.StrictMode>,
   document.getElementById('root')
 );
