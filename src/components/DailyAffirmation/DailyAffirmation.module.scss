@@ -1,6 +1,19 @@
 @import '../../index.scss';
 
+.eyebrow {
+    color: $off-black;
+    font-family: "Barlow-Bold";
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+}
 .affirmation {
     color: $off-black;
     font-family: "Quincy";
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 60px;
 }
