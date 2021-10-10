@@ -11,8 +11,8 @@ body {
 }
 
 #root {
-  padding-bottom: 170px;
   position: relative;
+  margin-top: 60px;
   /* height: calc(100vh - 170px); */
 }
 

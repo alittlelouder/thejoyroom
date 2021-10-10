@@ -41,7 +41,9 @@
 }
 .image {
     margin-top: 40px;
-    max-width: 300px;
+    img {
+        width: 100%;
+    }
 }
 .section .image img {
     max-width: 180px;

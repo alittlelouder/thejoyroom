@@ -2,8 +2,31 @@
 
 .header {
     margin-top: 60;
+
+    
 }
 .logo img {
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
+}
+
+.button-wrapper {
+    justify-content: right;
+    display: flex;
+    color:red;
+}
+.button {
+    font-family: "Barlow-Bold";
+    background: white;
+    border-radius: 100px;
+    padding: 13px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    display:flex;
+    align-items:center;
+    border: none;
+
+    img {
+        padding-left:10px;
+    }
 }

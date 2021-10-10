@@ -4,9 +4,9 @@ import style from './DailyAffirmation.module.scss';
 
 export const DailyAffirmation = (props) => {
     return (
-        <div>
-        <span className={style["eyebrow"]}>Today's Affirmation</span>
-        <h1 className={style["affirmation"]}>I am so grateful for the courage to be my most authentic self</h1>
+        <div className="header">
+        <p className={`$style["eyebrow"] app-row app-col app-col-lg-offset-2`}>Today's Affirmation</p>
+        <h1 className={`$style["affirmation"] app-row app-col app-col-lg-offset-2`}>{props.text}</h1>
         </div>
     )
 }

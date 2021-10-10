@@ -1,0 +1,35 @@
+@import '../../index.scss';
+
+.customizer{
+    display: block;
+    width: 100%;
+    color: $off-black;
+    font-family: "Quincy";
+    font-size: 48px;
+    line-height: 72px;
+
+    input {
+        background: none;
+        border: none;
+        font-size: 48px;
+        font-family: 'Quincy';
+        color: #40381A;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+    }
+}
+
+.circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: red;
+    border: 2px solid #fff;
+    margin:0px 12px;
+
+    &.active {
+        border: 2px solid #40381A;
+    }
+}
