@@ -1,17 +1,23 @@
 @import '../../index.scss';
 .content-card{
     background-color: white;
+    color: white;
     padding: 40px;
     border-radius: 16px;
 }
 .eyebrow {
     font-family: "Barlow-Bold";
+    font-size: 14px;
+    letter-spacing: 2px;
 }
 .image {
     margin-top: 40px;
+    max-width: 300px;
 }
 .title {
     margin-top: 40px; 
+    font-family: "Quincy-Bold";
+    font-size: 30px;
 }
 .description {
     margin-top: 20px;

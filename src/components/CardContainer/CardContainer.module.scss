@@ -1,0 +1,14 @@
+@import '../../index.scss';
+.wrapper{
+    display: block;
+    width: 100%;
+}
+
+.card-container {
+    display: block;
+    min-height: 100px;
+    
+    @media (min-width:1025px) {
+        display: flex;
+    }
+}
