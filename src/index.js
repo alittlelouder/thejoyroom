@@ -10,9 +10,12 @@ import ContentCard from "./components/ContentCard/ContentCard";
 import Footer from "./components/Footer/Footer";
 import reportWebVitals from "./reportWebVitals";
 
+//temp data images
 import Celeste from './assets/images/celeste.png';
 import Burst from './assets/images/burst.png';
 import Badge from './assets/images/badge.png';
+import Leaves from './assets/images/leaves.png';
+import Door from './assets/images/door.png';
 
 
 const data = [
@@ -23,6 +26,32 @@ const data = [
     title: "Celeste Ng",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+    secondaryContent: [
+      {
+        image: Celeste,
+        eyebrow:'Celeste Ng',
+    title: "Lorem ipsum dolor sit amet pagar",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+      link: 'Read more',
+      linkUrl: ''
+      },
+      {
+        image: Burst,
+        eyebrow:'Celeste Ng',
+    title: "Self Care Guide",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+      },
+      {
+        image: Burst,
+        eyebrow:'Celeste Ng',
+    title: "Self Care Guide",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+      }
+    ]
+    
   },
   {
     eyebrow: "FEATURED GUIDE",
@@ -31,6 +60,8 @@ const data = [
     title: "Self Care Guide",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+      link: 'View all guides',
+      linkUrl: ''
   },
   {
     eyebrow: "WEEKLY ROUND-UP",
@@ -39,6 +70,37 @@ const data = [
     title: "What to Read, Watch and Listen",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+      link: 'Read more',
+      linkUrl: '',
+      secondaryContent: [
+        {
+          image: Badge,
+          eyebrow:'Read',
+      title: "Lorem ipsum dolor sit amet pagar",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+        link: 'Read more',
+        linkUrl: ''
+        },
+        {
+          image: Door,
+          eyebrow:'Listen',
+      title: "Lorem ipsum dolor sit amet pagar",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+        link: 'Read more',
+        linkUrl: ''
+        },
+        {
+          image: Leaves,
+          eyebrow:'WATCH',
+      title: "Lorem ipsum dolor sit amet pagar",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
+        link: 'Read more',
+        linkUrl: ''
+        }
+      ]
   },
 ];
 ReactDOM.render(
@@ -55,6 +117,9 @@ ReactDOM.render(
         image={card.image}
         title={card.title}
         description={card.description}
+        link={card.link}
+        url={card.linkUrl}
+        secondaryContent={card.secondaryContent}
       />
     )}
     </CardContainer>

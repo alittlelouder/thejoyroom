@@ -5,14 +5,46 @@
     padding: 40px;
     border-radius: 16px;
 }
-.eyebrow {
+.content-card-header {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content-card-expanded{
+    background-color: white;
+    color: white;
+    padding: 40px;
+    border-radius: 16px;
+    position: absolute;
+    height: -webkit-fill-available;
+}
+.content-card-expanded .content-card-header {
+    align-items: flex-start;
+}
+.section {
+    color: white;
+}
+.expand {
+    height: 30px;
+    width: 30px;
+}
+.close {
+    width: 17.5px;
+    height: 17.5px;
+}
+.eyebrow, .section-eyebrow{
     font-family: "Barlow-Bold";
     font-size: 14px;
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .image {
     margin-top: 40px;
     max-width: 300px;
+}
+.section .image img {
+    max-width: 180px;
 }
 .title {
     margin-top: 40px; 
@@ -22,4 +54,17 @@
 .description {
     margin-top: 20px;
     margin-bottom: 45px;
+}
+.description {
+    font-family: 'Ovo';
+    font-size: 14px;
+    line-height: 150%;
+}
+.link {
+    font-family: 'Quincy-Italic';
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    text-transform: capitalize;
 }
