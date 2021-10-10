@@ -1,3 +1,9 @@
+@import '../../index.scss';
+
 .greeting {
-    
+    color: $off-black;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-family: 'Quincy';
+    font-size: 24px;
 }
