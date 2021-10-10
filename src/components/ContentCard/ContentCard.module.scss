@@ -12,7 +12,9 @@
 }
 .image {
     margin-top: 40px;
-    max-width: 300px;
+    img {
+        max-width: 100%;
+    }
 }
 .title {
     margin-top: 40px; 

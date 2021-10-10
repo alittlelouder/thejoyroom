@@ -1,50 +1,35 @@
 @import '../../index.scss';
 
+.wrapper {
+  background: url(../../assets/svg/footer-waves.svg);
+  height: 170px;
+    
+}
+
 .footer {
-    background: url(../../assets/svg/footer-waves.svg);
-    height: 170px;
-    padding-top: 100px;
+  padding-top: 100px;
 
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
 
-    .flex-container {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: normal;
-        align-content: stretch;
-      }
-      
-      .flex-items:nth-child(1) {
-        display: block;
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 0;
-      }
-      
-      .flex-items:nth-child(2) {
-        display: block;
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 0;
-      }
-      
-      .flex-items:nth-child(3) {
-        display: block;
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 0;
-      }
+
+  display: block;
+  
+  @media (min-width:1025px) {
+      display: flex;
+  }
+
+  .item {
+    display: flex;
+    align-items: flex-start;
+
+    &:nth-child(2) {
+    justify-content: center;
+    }
+
+    &:nth-child(3) {
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+  }
 }
 
