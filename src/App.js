@@ -7,6 +7,7 @@ import Affirmation from "./components/DailyAffirmation/DailyAffirmation.js";
 import CardContainer from "./components/CardContainer/CardContainer";
 import ContentCard from "./components/ContentCard/ContentCard";
 import Customizer from './components/Customizer/Customizer';
+import Footer from './components/Footer/Footer';
 
 const contentURL = 'https://graphql.contentful.com/content/v1/spaces/wr6ttoy5edxe/environments/master?access_token=Z2xqNSZWD1jhGfh7RtaxqdMyX4iOYT4NQ_2-g9EiVHI&query=query($preview:%20Boolean,%20$limit:%20Int,%20$contentDatesId:%20String!)%20{%20contentDates(preview:%20$preview,%20id:%20$contentDatesId)%20{%20affirmation%20{%20json%20}%20sectionsCollection%20{%20items%20{%20title%20description%20link%20linkText%20image%20{%20url%20width%20height%20}%20sectionName%20resourcesCollection(limit:%20$limit)%20{%20items%20{%20eyebrow%20title%20description%20externalLink%20externalLinkText%20image%20{%20url%20width%20height%20}%20}%20}%20}%20}%20}%20}%20&variables={%20%22contentDatesId%22:%20%222C9D1e8DdPI0vGT4XXR4OU%22,%20%22preview%22:%20null,%20%22limit%22:%206%20}';
 
@@ -50,6 +51,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.setState((prevState) => {
+          console.log(data.data.contentDates);
           prevState.affirmation = data.data.contentDates.affirmation.json.content[0].content[0].value;
           prevState.content = data.data.contentDates.sectionsCollection.items;
           localStorage.setItem('state', JSON.stringify(prevState));
@@ -99,7 +101,7 @@ class App extends React.Component {
                   handleGreetingChange={this.handleGreetingChange}
                   colors={this.colors}/>
     } else {
-      content = (<div>
+      content = (<div className="main-content">
         <Greeting greeting={this.state.greeting} />
         <Affirmation text={this.state.affirmation} />
 
@@ -113,6 +115,8 @@ class App extends React.Component {
               image={card.image.url}
               title={card.title}
               description={card.description}
+              link={card.link}
+              linkText={card.linkText}
               secondaryContent={card.resourcesCollection.items}
             />
           )}
@@ -123,6 +127,7 @@ class App extends React.Component {
       <React.StrictMode>
         <Header isCustomizing={this.state.isCustomizing} handleCustomizeClick={this.handleCustomizeClick}/>
         {content}
+        <Footer />
       </React.StrictMode>
     );
   }

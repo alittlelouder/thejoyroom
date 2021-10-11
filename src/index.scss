@@ -31,6 +31,7 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
+    transition: background-color $transition-speed, color $transition-speed;
 
     &.theme-flower {
         background-image: url('assets/svg/flower.svg');
@@ -42,6 +43,12 @@ body {
     background-position-y: 50%;
     background-position-x: calc(100% + 10vh);
     background-size: 50vh;
+    overflow-x: hidden;
+  }
+
+  .main-content {
+    flex-grow: 1;
+    margin: auto;
   }
 
   .footer-wrapper {

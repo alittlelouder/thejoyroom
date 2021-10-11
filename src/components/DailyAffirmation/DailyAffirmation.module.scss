@@ -12,6 +12,7 @@
 }
 .affirmation {
     color: var(--text-color);
+    transition: color $transition-speed;
     font-family: "Quincy";
     font-size: 40px;
     margin-top: 0;

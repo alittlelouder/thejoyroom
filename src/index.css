@@ -12,6 +12,10 @@ body {
 #root {
   position: relative;
   margin: 60px auto 0px auto;
+
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
   /* height: calc(100vh - 170px); */
 }
 
