@@ -1,7 +1,7 @@
 @import '../../index.scss';
 
 .greeting {
-    color: $off-black;
+    color: var(--text-color);
     margin-top: 60px;
     margin-bottom: 60px;
     font-family: 'Quincy';

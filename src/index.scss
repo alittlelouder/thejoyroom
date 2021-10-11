@@ -1,3 +1,81 @@
 @import 'assets/scss/vars';
 @import 'assets/scss/mixins';
 @import 'assets/scss/grid';
+
+// $off-black: #40381A;
+// $off-white: #FAF8F1;
+// $lilac: #E7C8D8;
+// $red: #C96112;
+// $peach: #EC9D5E;
+// $blue: #A2CEBF;
+// $mustard: #D4A617;
+
+:root {
+    --background-color: #E7C8D8;
+    --text-color: #40381A;
+    
+    --content-card-background-1: #C96112;
+    --content-card-background-2: #EC9D5E;
+    --content-card-background-3: #40381A;
+}
+
+.theme-dark {
+    --background-color: #40381A;
+    --text-color: #FAF8F1;
+
+    --content-card-background-1: #C96112;
+    --content-card-background-2: #EC9D5E;
+    --content-card-background-3: #D4A617;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    &.theme-flower {
+        background-image: url('assets/svg/flower.svg');
+    }
+    &.theme-sun {
+        background-image: url('assets/svg/sun.svg');
+    }
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: calc(100% + 10vh);
+    background-size: 50vh;
+  }
+
+  .footer-wrapper {
+    background: url(assets/svg/footer-waves-piece.svg);
+    height: 170px;
+    margin-top: 22px;
+
+    position: sticky;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+  
+  .footer {
+    padding-top: 100px;
+    margin: auto;
+    display: block;
+    
+    @media (min-width:1025px) {
+        display: flex;
+    }
+  
+    .item {
+      display: flex;
+      align-items: flex-start;
+  
+      &:nth-child(2) {
+      justify-content: center;
+      }
+  
+      &:nth-child(3) {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        align-content: flex-start;
+      }
+    }
+  }

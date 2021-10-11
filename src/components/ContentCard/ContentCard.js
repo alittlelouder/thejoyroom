@@ -19,7 +19,6 @@ export const ContentCard = (props) => {
     return (
       <div
         className={`app-row app-row-lg--between app-col-md-18 app-col-lg-20 ${style["content-card-expanded"]}`}
-        style={{ backgroundColor: props.backgroundColor }}
       >
         <div className={style["content-card-header"]}>
           <span className={style["eyebrow"]}>{props.eyebrow}</span>
@@ -46,7 +45,6 @@ export const ContentCard = (props) => {
   return (
     <div
       className={`app-col-md-18 app-col-lg-5 ${style["content-card"]}`}
-      style={{ backgroundColor: props.backgroundColor }}
     >
       <div className={style["content-card-header"]}>
         <span className={style["eyebrow"]}>{props.eyebrow}</span>

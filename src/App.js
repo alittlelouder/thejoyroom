@@ -10,13 +10,6 @@ import Footer from "./components/Footer/Footer";
 import reportWebVitals from "./reportWebVitals";
 import Customizer from './components/Customizer/Customizer';
 
-//temp data images
-import Celeste from './assets/images/celeste.png';
-import Burst from './assets/images/burst.png';
-import Badge from './assets/images/badge.png';
-import Leaves from './assets/images/leaves.png';
-import Door from './assets/images/door.png';
-
 const contentURL = 'https://graphql.contentful.com/content/v1/spaces/wr6ttoy5edxe/environments/master?access_token=Z2xqNSZWD1jhGfh7RtaxqdMyX4iOYT4NQ_2-g9EiVHI&query=query($preview:%20Boolean,%20$limit:%20Int,%20$contentDatesId:%20String!)%20{%20contentDates(preview:%20$preview,%20id:%20$contentDatesId)%20{%20affirmation%20{%20json%20}%20sectionsCollection%20{%20items%20{%20title%20description%20link%20linkText%20image%20{%20url%20width%20height%20}%20sectionName%20resourcesCollection(limit:%20$limit)%20{%20items%20{%20eyebrow%20title%20description%20externalLink%20externalLinkText%20image%20{%20url%20width%20height%20}%20}%20}%20}%20}%20}%20}%20&variables={%20%22contentDatesId%22:%20%222C9D1e8DdPI0vGT4XXR4OU%22,%20%22preview%22:%20null,%20%22limit%22:%206%20}';
 
 class App extends React.Component {
@@ -25,6 +18,9 @@ class App extends React.Component {
 
     this.handleCustomizeClick = this.handleCustomizeClick.bind(this);
     this.handleGreetingChange = this.handleGreetingChange.bind(this);
+    this.handleColorPaletteChange = this.handleColorPaletteChange.bind(this);
+    this.handleBackgroundChange = this.handleBackgroundChange.bind(this);
+    
 
     this.colors = {
       'offBlack': '#40381A',
@@ -41,13 +37,16 @@ class App extends React.Component {
       this.state = {
         affirmation: '',
         greeting: 'Welcome,',
-        content: []
+        content: [],
+        palette: 'light',
+        background: 'theme-flower'
       };
     } else {
       this.state = localState;
     }
 
-
+    this.handleColorPaletteChange(this.state.palette);
+    this.handleBackgroundChange(this.state.background);
 
     fetch(contentURL)
       .then(response => response.json())
@@ -61,13 +60,10 @@ class App extends React.Component {
       });
   }
 
-  handleCustomizeClick() {
-    this.setState({isCustomizing: !this.state.isCustomizing});
-  }
-
-  handleGreetingChange(e) {
+  saveStateWithoutCustomization(param, val) {
     this.setState(prevState => {
-      prevState.greeting= e.target.value;
+      console.log(param, val);
+      prevState[param]= val;
       prevState.isCustomizing = false;
       localStorage.setItem('state', JSON.stringify(prevState));
       prevState.isCustomizing = true;
@@ -75,12 +71,37 @@ class App extends React.Component {
     });
   }
 
+  handleCustomizeClick() {
+    this.setState({isCustomizing: !this.state.isCustomizing});
+  }
+
+  handleGreetingChange(e) {
+    this.saveStateWithoutCustomization('greeting', e.target.value)
+  }
+
+  handleColorPaletteChange(val) {
+    document.body.classList.remove('theme-dark', 'theme-light');
+    document.body.classList.add(val);
+    this.saveStateWithoutCustomization('palette', val);
+  }
+
+  handleBackgroundChange(val) {
+    document.body.classList.remove('theme-sun', 'theme-flower');
+    document.body.classList.add(val);
+    this.saveStateWithoutCustomization('background', val);
+  }
+
   render() {
-    let body;
+    let content;
     if (this.state.isCustomizing) {
-      body = <Customizer greeting={this.state.greeting} handleGreetingChange={this.handleGreetingChange} colors={this.colors}/>
+      content = <Customizer
+                  greeting={this.state.greeting}
+                  handleColorPaletteChange={this.handleColorPaletteChange}
+                  handleBackgroundChange={this.handleBackgroundChange}
+                  handleGreetingChange={this.handleGreetingChange}
+                  colors={this.colors}/>
     } else {
-      body = (<div>
+      content = (<div>
         <Greeting greeting={this.state.greeting} />
         <Affirmation text={this.state.affirmation} />
 
@@ -88,6 +109,7 @@ class App extends React.Component {
           {this.state.content.map((card, i) =>
 
             <ContentCard
+              id={i}
               eyebrow={card.sectionName}
               backgroundColor={this.colors[['red', 'peach', 'offBlack'][i]]}
               image={card.image.url}
@@ -102,8 +124,7 @@ class App extends React.Component {
     return (
       <React.StrictMode>
         <Header isCustomizing={this.state.isCustomizing} handleCustomizeClick={this.handleCustomizeClick}/>
-        {body}
-        <Footer />
+        {content}
       </React.StrictMode>
     );
   }
