@@ -2,7 +2,6 @@ import React from 'react';
 import style from './Customizer.module.scss';
 import backgroundChip1 from '../../assets/svg/background-chip-1.svg';
 import backgroundChip2 from '../../assets/svg/background-chip-2.svg';
-import iconCustomize from '../../assets/svg/icon-customize.svg';
 
 
 

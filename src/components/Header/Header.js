@@ -11,7 +11,7 @@ export const Header = (props) => {
                 <img src={logo} alt=""/>
             </div>
             <div className={`${style["button-wrapper"]} app-col app-col-lg-10`}>
-                <button className={`${style["button"]}`} onClick={props.handleCustomizeClick}>{props.isCustomizing ? 'Close' : 'Customize'} <span><img src={props.isCustomizing ? iconClose : iconCustomize} /></span></button>
+                <button className={`${style["button"]}`} onClick={props.handleCustomizeClick}>{props.isCustomizing ? 'Close' : 'Customize'} <span><img alt="" src={props.isCustomizing ? iconClose : iconCustomize} /></span></button>
             </div>
         </div>
     )

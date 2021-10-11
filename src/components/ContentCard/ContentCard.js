@@ -12,7 +12,7 @@ export const ContentCard = (props) => {
   let expandElement;
   if (props.secondaryContent.length) {
       expandElement = (<div onClick={toggleExpand}>
-      <img src={ExpandIcon} className={style["expand"]} />
+      <img alt="" src={ExpandIcon} className={style["expand"]} />
     </div>)
   }
   if (isExpanded && props.secondaryContent.length) {
@@ -23,14 +23,14 @@ export const ContentCard = (props) => {
         <div className={style["content-card-header"]}>
           <span className={style["eyebrow"]}>{props.eyebrow}</span>
           <div onClick={toggleExpand}>
-            <img src={CloseIcon} className={style["close"]} />
+            <img alt=""  src={CloseIcon} className={style["close"]} />
           </div>
         </div>
 
         {props.secondaryContent.map(section => 
           <div className={`app-col-md-18 app-col-lg-5 ${style["section"]}`}>
           <div className={style["image"]}>
-         <img src={section.image.url}/>
+         <img alt="" src={section.image.url}/>
            </div>
             <p className={style["section-eyebrow"]}>{section.eyebrow}</p>
           <p className={style["title"]}>{section.title}</p>
@@ -51,7 +51,7 @@ export const ContentCard = (props) => {
         {expandElement}
       </div>
       <div className={style["image"]}>
-        <img src={props.image} />
+        <img alt="" src={props.image} />
       </div>
       <p className={style["title"]}>{props.title}</p>
       <p className={style["description"]}>{props.description} </p>
