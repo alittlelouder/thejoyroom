@@ -18,92 +18,6 @@ import Leaves from './assets/images/leaves.png';
 import Door from './assets/images/door.png';
 
 const contentURL = 'https://graphql.contentful.com/content/v1/spaces/wr6ttoy5edxe/environments/master?access_token=Z2xqNSZWD1jhGfh7RtaxqdMyX4iOYT4NQ_2-g9EiVHI&query=query($preview:%20Boolean,%20$limit:%20Int,%20$contentDatesId:%20String!)%20{%20contentDates(preview:%20$preview,%20id:%20$contentDatesId)%20{%20affirmation%20{%20json%20}%20sectionsCollection%20{%20items%20{%20title%20description%20link%20linkText%20image%20{%20url%20width%20height%20}%20sectionName%20resourcesCollection(limit:%20$limit)%20{%20items%20{%20eyebrow%20title%20description%20externalLink%20externalLinkText%20image%20{%20url%20width%20height%20}%20}%20}%20}%20}%20}%20}%20&variables={%20%22contentDatesId%22:%20%222C9D1e8DdPI0vGT4XXR4OU%22,%20%22preview%22:%20null,%20%22limit%22:%206%20}';
-//temp data
-const data = [
-  {
-    eyebrow: "OCTOBER WoC SPOTLIGHT",
-    backgroundColor: "#C96112",
-    image: Celeste,
-    title: "Celeste Ng",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-    secondaryContent: [
-      {
-        image: Celeste,
-        eyebrow:'Celeste Ng',
-    title: "Lorem ipsum dolor sit amet pagar",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-      link: 'Read more',
-      linkUrl: ''
-      },
-      {
-        image: Burst,
-        eyebrow:'Celeste Ng',
-    title: "Self Care Guide",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-      },
-      {
-        image: Burst,
-        eyebrow:'Celeste Ng',
-    title: "Self Care Guide",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-      }
-    ]
-    
-  },
-  {
-    eyebrow: "FEATURED GUIDE",
-    backgroundColor: "#EC9D5E",
-    image: Burst,
-    title: "Self Care Guide",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-      link: 'View all guides',
-      linkUrl: ''
-  },
-  {
-    eyebrow: "WEEKLY ROUND-UP",
-    backgroundColor: "#40381A",
-    image: Badge,
-    title: "What to Read, Watch and Listen",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-      link: 'Read more',
-      linkUrl: '',
-      secondaryContent: [
-        {
-          image: Badge,
-          eyebrow:'Read',
-      title: "Lorem ipsum dolor sit amet pagar",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-        link: 'Read more',
-        linkUrl: ''
-        },
-        {
-          image: Door,
-          eyebrow:'Listen',
-      title: "Lorem ipsum dolor sit amet pagar",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-        link: 'Read more',
-        linkUrl: ''
-        },
-        {
-          image: Leaves,
-          eyebrow:'WATCH',
-      title: "Lorem ipsum dolor sit amet pagar",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna massa, dignissim id tellus at, mollis auctor libero. ",
-        link: 'Read more',
-        linkUrl: ''
-        }
-      ]
-  },
-];
 
 class App extends React.Component {
   constructor(props) {
@@ -179,6 +93,7 @@ class App extends React.Component {
               image={card.image.url}
               title={card.title}
               description={card.description}
+              secondaryContent={card.resourcesCollection.items}
             />
           )}
         </CardContainer>

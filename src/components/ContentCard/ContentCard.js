@@ -8,9 +8,14 @@ export const ContentCard = (props) => {
   const toggleExpand = () => {
     setIsExpanded((bool) => !bool);
   };
-  console.log(props);
 
-  if (isExpanded && props.secondaryContent != null) {
+  let expandElement;
+  if (props.secondaryContent.length) {
+      expandElement = (<div onClick={toggleExpand}>
+      <img src={ExpandIcon} className={style["expand"]} />
+    </div>)
+  }
+  if (isExpanded && props.secondaryContent.length) {
     return (
       <div
         className={`app-row app-row-lg--between app-col-md-18 app-col-lg-20 ${style["content-card-expanded"]}`}
@@ -26,12 +31,12 @@ export const ContentCard = (props) => {
         {props.secondaryContent.map(section => 
           <div className={`app-col-md-18 app-col-lg-5 ${style["section"]}`}>
           <div className={style["image"]}>
-         <img src={section.image}/>
+         <img src={section.image.url}/>
            </div>
             <p className={style["section-eyebrow"]}>{section.eyebrow}</p>
           <p className={style["title"]}>{section.title}</p>
           <p className={style["description"]}>{section.description} </p>
-          <a className={style["link"]} href={section.linkUrl} target="">{section.link}</a>
+          <a className={style["link"]} href={section.externalLink} target="">{section.externalLinkText}</a>
           </div>
         )}
 
@@ -45,11 +50,7 @@ export const ContentCard = (props) => {
     >
       <div className={style["content-card-header"]}>
         <span className={style["eyebrow"]}>{props.eyebrow}</span>
-        {props.secondaryContent != null &&
-        <div onClick={toggleExpand}>
-          <img src={ExpandIcon} className={style["expand"]} />
-        </div>
-        }
+        {expandElement}
       </div>
       <div className={style["image"]}>
         <img src={props.image} />
