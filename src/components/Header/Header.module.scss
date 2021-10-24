@@ -5,8 +5,9 @@
     margin: auto;
 }
 .logo img {
-    // width: 100%;
-    // height: 100%;
+    height:46px;
+    filter: var(--logo-filter);
+    transition: filter $transition-speed, color $transition-speed;
 }
 
 .button-wrapper {

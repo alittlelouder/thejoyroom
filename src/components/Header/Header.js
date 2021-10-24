@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/images/joy-room-logo.png';
+import logo from '../../assets/svg/the-joy-room.svg';
 import iconCustomize from '../../assets/svg/icon-customize.svg';
 import iconClose from '../../assets/svg/icon-close.svg';
 import style from './Header.module.scss';
