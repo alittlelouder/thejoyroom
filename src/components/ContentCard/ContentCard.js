@@ -18,7 +18,7 @@ export const ContentCard = (props) => {
 
     let expandedContentElement = (
         <div
-            className={`app-row app-row-lg--between app-col-md-18 app-col-lg-20 ${style["content-card-expanded"]}`}
+            className={`app-row app-row-lg--between app-col-md-20 ${style["content-card-expanded"]}`}
         >
             <div className={style["content-card-header"]}>
                 <span className={style["eyebrow"]}>{props.eyebrow}</span>
@@ -29,13 +29,17 @@ export const ContentCard = (props) => {
 
             {props.secondaryContent.map(section =>
                 <div className={`app-col-md-18 app-col-lg-5 ${style["section"]}`}>
+                    <div className={style["card"]}>
                     <div className={style["image"]}>
                         <img alt="" src={section.image.url} />
                     </div>
+                    <div className={style["card-info"]}>
                     <p className={style["section-eyebrow"]}>{section.eyebrow}</p>
                     <p className={style["title"]}>{section.title}</p>
                     <p className={style["description"]}>{section.description} </p>
                     <a className={style["link"]} href={section.externalLink} target="">{section.externalLinkText}</a>
+                    </div>
+                </div>
                 </div>
             )}
 
@@ -50,12 +54,16 @@ export const ContentCard = (props) => {
                 <span className={style["eyebrow"]}>{props.eyebrow}</span>
                 {expandElement}
             </div>
+            <div className={style["card"]}>
             <div className={style["image"]}>
                 <img alt="" src={props.image} />
             </div>
+            <div className={style["card-info"]}>
             <p className={style["title"]}>{props.title}</p>
             <p className={style["description"]}>{props.description} </p>
             <a className={style["link"]} href={props.link} target="">{props.linkText}</a>
+            </div>
+            </div>
         </div>
     )
 

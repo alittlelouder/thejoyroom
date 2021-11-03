@@ -16,6 +16,9 @@
     &:nth-child(3) {
         background: var(--content-card-background-3);
     }
+    @media (max-width: $large-min) {
+        margin-bottom: 20px;
+    }
 }
 .content-card-header {
     width: 100%;
@@ -68,7 +71,24 @@
     img {
         width: 100%;
     }
+    @media (max-width: $large-min) {
+        max-width: 300px;
+        width: 300px;
+    }
 }
+.card {
+    @media (max-width: $large-min) {
+    display: flex;
+    align-items: center;
+    }
+}
+.card-info {
+    display: block;
+    @media (max-width: $large-min) {
+    margin-left: 40px;
+    }
+}
+
 .section .image img {
     max-width: 180px;
 }
@@ -76,10 +96,19 @@
     margin-top: 40px; 
     font-family: "Quincy-Bold";
     font-size: 30px;
+
+    @media (max-width: $large-min) {
+        margin-top: 0px;
+        margin-bottom: 0;
+    }
 }
 .description {
     margin-top: 20px;
     margin-bottom: 45px;
+
+    @media (max-width: $large-min) {
+        margin-bottom: 20px;
+    }
 }
 .description {
     font-family: 'Ovo';

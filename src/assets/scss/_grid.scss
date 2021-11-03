@@ -193,3 +193,7 @@ $grid_length: 24;
 @include bp-min(l) {
   @include col-loop('lg');
 }
+
+@include bp-min(xl) {
+  @include col-loop('xl');
+}

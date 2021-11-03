@@ -4,7 +4,7 @@ import style from './Greeting.module.scss';
 
 export const Greeting = (props) => {
     return (
-        <p className={`${style["greeting"]} app-col`}>{props.greeting ? ` ${props.greeting}` : ''}</p>
+        <p className={`${style["greeting"]} app-col app-col-md-20`}>{props.greeting ? ` ${props.greeting}` : ''}</p>
     )
 }
 

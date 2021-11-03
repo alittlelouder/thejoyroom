@@ -11,4 +11,7 @@
     @media (min-width:1025px) {
         display: flex;
     }
+    @media (max-width: $large-min) {
+        margin: 0 auto;
+    }
 }
