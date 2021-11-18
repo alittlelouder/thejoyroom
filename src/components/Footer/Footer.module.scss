@@ -2,6 +2,7 @@
 
 .wrapper {
   background: url(../../assets/svg/footer-waves-piece.svg);
+  background-position-x: center;
   height: 170px;
   margin-top: 92px;
 
@@ -16,9 +17,7 @@
   margin-bottom: 20px;
   display: block;
   
-  @media (min-width:1025px) {
-      display: flex;
-  }
+  display: flex;
 
   .item {
     display: flex;

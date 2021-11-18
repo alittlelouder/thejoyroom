@@ -21,7 +21,6 @@ class App extends React.Component {
     this.handleGreetingChange = this.handleGreetingChange.bind(this);
     this.handleColorPaletteChange = this.handleColorPaletteChange.bind(this);
     this.handleBackgroundChange = this.handleBackgroundChange.bind(this);
-    
 
     this.colors = {
       'offBlack': '#40381A',
@@ -37,19 +36,32 @@ class App extends React.Component {
     if (!localState) {
       this.state = {
         affirmation: '',
+        affirmationOpacity: 1,
         greeting: 'Welcome,',
         content: [],
         palette: 'light',
         background: 'theme-flower'
       };
     } else {
+      localState.affirmationOpacity = 1;
       this.state = localState;
     }
+    this.setState((prevState) => {
+      prevState.affirmationOpacity = 1;
+      return prevState;
+    });
+    console.log(this.state);
 
     this.handleColorPaletteChange(this.state.palette);
     this.handleBackgroundChange(this.state.background);
 
-    
+    // setInterval(() => {
+        
+    // }, 100);
+
+    window.addEventListener("scroll", () => {
+      this.updateAffirmationOpacity();
+    });
 
     if (params.get('preview')) {
       this.getContent(isPreview, params.get('preview'), previewToken)
@@ -106,6 +118,18 @@ class App extends React.Component {
     this.saveStateWithoutCustomization('background', val);
   }
 
+  updateAffirmationOpacity() {
+    console.log()
+    const currentScroll = window.pageYOffset;
+      let opacity = (290 - window.pageYOffset) / 290;
+      if (opacity != this.state.affirmationOpacity) {
+        this.setState((prevState) => {
+          prevState.affirmationOpacity = opacity;
+          return prevState;
+        });
+      }
+  }
+
   render() {
     let content;
     if (this.state.isCustomizing) {
@@ -118,7 +142,7 @@ class App extends React.Component {
     } else {
       content = (<div className="main-content">
         <Greeting greeting={this.state.greeting} />
-        <Affirmation text={this.state.affirmation} />
+        <Affirmation text={this.state.affirmation} opacity={1}/>
 
         <CardContainer>
           {this.state.content.map((card, i) =>

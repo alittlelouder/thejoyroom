@@ -24,7 +24,6 @@
     width: 100%;
     display: inline-flex;
     justify-content: space-between;
-    align-items: center;
 }
 .content-card-expanded{
     background-color: white;
@@ -55,6 +54,9 @@
 .expand {
     height: 30px;
     width: 30px;
+}
+.close-wrapper {
+    margin-top: -16px;
 }
 .close {
     width: 17.5px;

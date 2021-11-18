@@ -11,7 +11,7 @@ export const ContentCard = (props) => {
 
     let expandElement;
     if (props.secondaryContent.length) {
-        expandElement = (<div onClick={toggleExpand}>
+        expandElement = (<div className={style["close-wrapper"]}  onClick={toggleExpand}>
             <img alt="" src={ExpandIcon} className={style["expand"]} />
         </div>)
     }

@@ -7,10 +7,10 @@ export const Footer = (props) => {
     return (
         /* eslint-disable-next-line */
         <div className={`app-row app-col ${style['wrapper']}`}>
-            <div className={`app-col app-col-md-20 app-col-lg-20  app-col-md-offset-2 app-row-lg--between ${style["footer"]}`}>
-                <div className={`app-col-md-18 app-col-lg-5 ${style['item']}`}><img src={allcoLogo} alt=""/></div>
-                <div className={`app-col-md-18 app-col-lg-5 ${style['item']}`}><img src={instagramLogo} alt=""/></div>
-                <div className={`app-col-md-18 app-col-lg-5 ${style['item']}`}>
+            <div className={`app-col app-col-xs-20 app-col-xs-offset-2 app-row-xs--between ${style["footer"]}`}>
+                <div className={`app-col-xs-5 ${style['item']}`}><a href="https://alittlelouder.co"><img src={allcoLogo} alt=""/></a></div>
+                <div className={`app-col-xs-5 ${style['item']}`}><a href="https://www.instagram.com/alittlelouderco"><img src={instagramLogo} alt=""/></a></div>
+                <div className={`app-col-xs-5 ${style['item']}`}>
                     <div>Share The Joy Room</div>
                     <div>View on Chrome Web Store</div>
                 </div>
