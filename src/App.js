@@ -40,7 +40,8 @@ class App extends React.Component {
         greeting: 'Welcome,',
         content: [],
         palette: 'light',
-        background: 'theme-flower'
+        background: 'theme-flower',
+        chromeLink: ''
       };
     } else {
       localState.affirmationOpacity = 1;
@@ -71,11 +72,31 @@ class App extends React.Component {
         .then(json => {
           this.getContent(isPreview, json.items[0].sys.id, liveToken)
         })
+      fetch(`https://graphql.contentful.com/content/v1/spaces/wr6ttoy5edxe/environments/master?access_token=${liveToken}&query=query{extensionDetails(id:"350cSYMKapJ3KQN3okMse6"){chromeLink}}`)
+        .then(response => response.json())
+        .then(json => {
+          this.setState((prevState) => {
+            prevState.chromeLink = json.data.extensionDetails.chromeLink
+            return prevState;
+          });
+          console.log()
+          // this.getContent(isPreview, json.items[0].sys.id, liveToken)
+        })
     }
   }
 
   getContent(preview, id, token) {
     const contentURL = `https://graphql.contentful.com/content/v1/spaces/wr6ttoy5edxe/environments/master?access_token=${token}&query=query($preview:%20Boolean,%20$limit:%20Int,%20$contentDatesId:%20String!)%20{%20contentDates(preview:%20$preview,%20id:%20$contentDatesId)%20{%20affirmation%20{%20json%20}%20sectionsCollection%20{%20items%20{%20title%20description%20link%20linkText%20image%20{%20url%20width%20height%20}%20sectionName%20resourcesCollection(limit:%20$limit)%20{%20items%20{%20eyebrow%20title%20description%20externalLink%20externalLinkText%20image%20{%20url%20width%20height%20}%20}%20}%20}%20}%20}%20}%20&variables={%20%22contentDatesId%22:%20%22${id}%22,%20%22preview%22:%20${preview},%20%22limit%22:%206%20}`;
+    fetch(contentURL)
+      .then(response => response.json())
+      .then(data => {
+        this.setState((prevState) => {
+          prevState.affirmation = data.data.contentDates.affirmation.json.content[0].content[0].value;
+          prevState.content = data.data.contentDates.sectionsCollection.items;
+          localStorage.setItem('state', JSON.stringify(prevState));
+          return prevState;
+        });
+      })
     fetch(contentURL)
       .then(response => response.json())
       .then(data => {
@@ -166,7 +187,7 @@ class App extends React.Component {
       <React.StrictMode>
         <Header isCustomizing={this.state.isCustomizing} handleCustomizeClick={this.handleCustomizeClick}/>
         {content}
-        <Footer />
+        <Footer chromeLink={this.state.chromeLink}/>
       </React.StrictMode>
     );
   }

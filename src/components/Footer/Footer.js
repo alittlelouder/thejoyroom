@@ -12,7 +12,7 @@ export const Footer = (props) => {
                 <div className={`app-col-xs-5 ${style['item']}`}><a href="https://www.instagram.com/alittlelouderco"><img src={instagramLogo} alt=""/></a></div>
                 <div className={`app-col-xs-5 ${style['item']}`}>
                     <div>Share The Joy Room</div>
-                    <div>View on Chrome Web Store</div>
+                    <div><a href={props.chromeLink}>View on Chrome Web Store</a></div>
                 </div>
             </div>
         </div>

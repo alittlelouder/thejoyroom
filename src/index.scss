@@ -13,6 +13,7 @@
 :root {
     --background-color: #E7C8D8;
     --text-color: #40381A;
+    --text-color-hover: #FAF8F1;
     --logo-filter: none;
     
     --content-card-background-1: #C96112;
@@ -23,6 +24,7 @@
 .theme-dark {
     --background-color: #40381A;
     --text-color: #FAF8F1;
+    --text-color-hover: #40381A;
     --logo-filter: invert(57%) sepia(93%) saturate(399%) hue-rotate(8deg) brightness(96%) contrast(92%);
 
     --content-card-background-1: #D4A617;
