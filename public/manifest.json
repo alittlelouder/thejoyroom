@@ -1,14 +1,13 @@
 {
   "short_name": "The Joy Room",
-  "description": "The Joy Room Chrome Extension",
-  "version": "1.0",
+  "description": "The Joy Room",
+  "version": "1.01",
   "manifest_version": 3,
-  "name": "The Joy Room Chrome Extension",
+  "name": "The Joy Room",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "permissions": ["storage"],
   "chrome_url_overrides" : {
     "newtab": "index.html"
   }
